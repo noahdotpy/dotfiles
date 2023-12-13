@@ -19,9 +19,6 @@
     calc
     lsd
     pfetch
-
-    hyprpaper
-    hyprpicker
   ];
 }
 

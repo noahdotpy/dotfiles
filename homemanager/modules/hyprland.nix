@@ -12,9 +12,9 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.packages = with pkgs; [
+        cliphist
         hyprpaper
         hyprpicker
-
         wofi-emoji
       ];
     })
