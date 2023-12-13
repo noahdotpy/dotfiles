@@ -11,7 +11,12 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
-      programs.hyprland.enable = true;
+      home.packages = with pkgs; [
+        hyprpaper
+        hyprpicker
+
+        wofi-emoji
+      ];
     })
   ];
 }

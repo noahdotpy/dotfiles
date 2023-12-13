@@ -9,5 +9,6 @@
     ./gnome.nix
     ./neovim.nix
     ./zsh.nix
+    ./hyprland.nix
   ];
 }

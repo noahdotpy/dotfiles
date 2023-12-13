@@ -2,28 +2,10 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "nix",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "v",
-        "vala",
-        "vim",
-        "yaml",
-        "zig",
-      },
-    },
+    opts = function()
+      return require("plugins.configs.treesitter")
+    end,
+    opts = {},
   },
 
   -- add symbols-outline
@@ -66,10 +48,10 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     lazy = false,
     opts = function()
-      return require("plugins.configs.null-ls")
+      return require("plugins.configs.none-ls")
     end,
   },
 
@@ -80,6 +62,5 @@ return {
 
   "alker0/chezmoi.vim",
 
-  -- { import = "lazyvim.plugins.extras.lang.json" },
-  -- { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.lsp.none-ls" },
 }

@@ -8,7 +8,6 @@ local opts = {
     null_ls.builtins.formatting.golines,
     null_ls.builtins.formatting.rustfmt,
     null_ls.builtins.formatting.stylua,
-
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
@@ -21,9 +20,10 @@ local opts = {
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({ bufnr = bufnr })
-        end
+        end,
       })
     end
-  end
+  end,
 }
+
 return opts

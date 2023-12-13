@@ -4,7 +4,7 @@
 , inputs
 , ...
 }: {
-  imports = [ ./modules ./packages.nix ];
+  imports = [ ./modules ];
 
   home = rec {
     username = "noah";

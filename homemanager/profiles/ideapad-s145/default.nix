@@ -7,5 +7,6 @@
 
   modules.fonts.enable = true;
   # modules.neovim.enable = true;
+  modules.hyprland.enable = true;
   modules.zsh.enable = true;
 }
