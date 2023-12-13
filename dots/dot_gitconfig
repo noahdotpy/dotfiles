@@ -1,0 +1,6 @@
+[user]
+	name = "noahdotpy"
+	email = noahdotpy@proton.me
+	signingkey = 7A9C4560DD856958 # <-- derived from the public key
+[commit]
+	gpgsign = true
