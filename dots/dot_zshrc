@@ -190,4 +190,4 @@ source $HOME/.zsh/plugins/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf
 ### MISCELLANEOUS ###
 #####################
 
-# kjv $(sort -R $HOME/.local/share/trmnl-rnd-bible/verses | head -n 1) | cowsay | lolcat -S 1100
+# kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 1100
