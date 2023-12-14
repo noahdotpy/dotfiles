@@ -34,10 +34,10 @@ end, { desc = "Pick a window " })
 
 -- TODO: Describe these better
 map("n", "<leader>nq", "<cmd>:Neotree close<cr>", { desc = "Close neotree" })
-map("n", "<leader>nf", "<cmd>:Neotree float source=filesystem<cr>", { desc = "Open filesystem neotree" })
-map("n", "<leader>nb", "<cmd>:Neotree float source=buffers<cr>", { desc = "Open buffers neotree" })
-map("n", "<leader>ng", "<cmd>:Neotree float source=git_status<cr>", { desc = "Open git_status neotree" })
-map("n", "<leader>e", "<cmd>:Neotree float source=filesystem<cr>", { desc = "Open git_status neotree" })
+map("n", "<leader>nf", "<cmd>:Neotree toggle source=filesystem<cr>", { desc = "Open filesystem neotree" })
+map("n", "<leader>nb", "<cmd>:Neotree toggle source=buffers<cr>", { desc = "Open buffers neotree" })
+map("n", "<leader>ng", "<cmd>:Neotree toggle source=git_status<cr>", { desc = "Open git_status neotree" })
+map("n", "<leader>e", "<cmd>:Neotree float source=filesystem<cr>", { desc = "Open filesystem neotree" })
 
 -- TODO: Add descriptions
 local hop = require("hop")
