@@ -16,6 +16,9 @@ in
         hyprpaper
         hyprpicker
         wofi-emoji
+        waybar
+        eww
+        nwg-look
       ];
     })
   ];
