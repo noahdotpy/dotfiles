@@ -18,8 +18,8 @@
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "s1": "*",
-      "term": "*"
-    },
+      "term": "*",
+    }.
     "show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
@@ -27,7 +27,8 @@
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": ""
+      "default": "",
+      "special": "󱡓",
     }
   },
   "battery": {
