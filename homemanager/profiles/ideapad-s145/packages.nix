@@ -19,7 +19,7 @@
 
     calc
     lsd
-    pfetch
+    fzf
   ];
 }
 

@@ -32,7 +32,7 @@ function clone-my-plugins() {
     plugin-clone github.com/joshskidmore/zsh-fzf-history-search
 }
 
-function clone-plugin() {
+function plugin-clone() {
     PLUGIN_URL="$1"
     if [[ $PLUGIN_URL == "https://"* || $PLUGIN_URL == "http://"* ]]; then
         PLUGIN_FOLDER="$PLUGIN_STORE/$(echo $PLUGIN_URL | awk -F "://" '{print $2}')"
@@ -43,7 +43,7 @@ function clone-plugin() {
     git clone $PLUGIN_URL $PLUGIN_FOLDER
 }
 
-function clear-plugins() {
+function plugins-clear() {
     rm -rf $PLUGIN_STORE
 }
 
@@ -54,7 +54,7 @@ ealiases=()
 # write a function for adding an alias to the list mentioned above
 function abbrev() {
     alias $1
-    export $1
+    # export $1
     ealiases+=(${1%%\=*})
 }
 
@@ -131,8 +131,12 @@ function ee() {
 
 abbrev x="clear"
 
-abbrev dot="dot"
+abbrev dot="chezmoi"
+abbrev dotsw="(cd ~/.local/share/chezmoi; home-manager switch --flake .)"
+abbrev hm="home-manager"
+abbrev hmsw="home-manager switch --flake $HOME/.local/share/chezmoi"
 
+abbrev g="git"
 abbrev gs="git status"
 abbrev lg="lazygit"
 
@@ -148,7 +152,9 @@ abbrev svim="spacevim"
 abbrev emacsc="emacsclient -c -a 'emacs'"
 abbrev py="python3"
 
-abbrev "..."="../.."
+abbrev "..2"="../.."
+abbrev "..3"="../../.."
+abbrev "..4"="../../../.."
 
 ##########################
 ### AUTOSTART PROGRAMS ###
@@ -184,4 +190,4 @@ source $HOME/.zsh/plugins/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf
 ### MISCELLANEOUS ###
 #####################
 
-kjv $(sort -R $HOME/.local/share/trmnl-rnd-bible/verses | head -n 1) | cowsay | lolcat -S 1100
+# kjv $(sort -R $HOME/.local/share/trmnl-rnd-bible/verses | head -n 1) | cowsay | lolcat -S 1100
