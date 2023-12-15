@@ -17,7 +17,7 @@ in
         hyprpicker
         wofi-emoji
         waybar
-        eww
+        eww-wayland
         nwg-look
       ];
     })
