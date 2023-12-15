@@ -40,6 +40,10 @@
                   name = "watch";
                   command = "${pkgs.findutils}/bin/find $HOME/.local/share/chezmoi/dots/ | ${pkgs.entr}/bin/entr chezmoi apply; home-manager switch --flake $HOME/.local/share/chezmoi";
                 }
+                {
+                  name = "apply";
+                  command = "chezmoi apply; home-manager switch --flake $HOME/.local/share/chezmoi";
+                }
               ];
               name = "dots";
             };
