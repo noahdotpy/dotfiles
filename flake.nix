@@ -39,11 +39,12 @@
                 {
                   name = "watch";
                   command = "${pkgs.findutils}/bin/find $HOME/.local/share/chezmoi/ | ${pkgs.entr}/bin/entr $HOME/.local/bin/apply.sh ";
+                  help = "watch for new changes and apply the new home configurations";
                 }
                 {
-                  name = "
-                    apply ";
+                  name = "apply";
                   command = "$HOME/.local/bin/apply.sh";
+                  help = "apply new home configurations";
                 }
               ];
               name = "dots";
