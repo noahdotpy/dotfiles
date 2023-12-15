@@ -35,18 +35,60 @@
                 nix
                 home-manager
               ];
-              commands = [
-                {
-                  name = "watch";
-                  command = "${pkgs.findutils}/bin/find $HOME/.local/share/chezmoi/ | ${pkgs.entr}/bin/entr $HOME/.local/bin/apply.sh ";
-                  help = "watch for new changes and apply the new home configurations";
-                }
-                {
-                  name = "apply";
-                  command = "$HOME/.local/bin/apply.sh";
-                  help = "apply new home configurations";
-                }
-              ];
+              commands =
+                let
+                  path = "$HOME/.local/share/chezmoi";
+                  find = "${pkgs.findutils}/bin/find";
+                  entr = "${pkgs.entr}/bin/entr";
+
+                  findAllFilesExpr = "${path}/{chezmoi,homemanager,flake.nix}";
+                  findNixFilesExpr = "${path}/{homemanager,flake.nix}";
+                  findChezmoiFilesExpr = "${path}/chezmoi";
+
+                  findAllFiles = "${find} ${findAllFilesExpr}";
+                  findNixFiles = "${find} ${findNixFilesExpr}";
+                  findChezmoiFiles = "${find} ${findChezmoiFilesExpr}";
+
+                  applyAll = "$HOME/.local/bin/apply.sh";
+                  applyHomeManager = "home-manager switch --flake ${path}";
+                  applyChezmoi = "${pkgs.chezmoi}/bin/chezmoi apply";
+
+                  watchAll = "${findAllFiles} | ${entr} ${applyAll}";
+                  watchHomeManager = "${findNixFiles} | ${entr} ${applyHomeManager}";
+                  watchChezmoi = "${findChezmoiFiles} | ${entr} ${applyChezmoi}";
+                in
+                [
+                  {
+                    name = "watch";
+                    command = "${watchAll}";
+                    help = "watch chezmoi+homemanager";
+                  }
+                  {
+                    name = "watch-homemanager";
+                    command = "${watchHomeManager}";
+                    help = "watch homemanger";
+                  }
+                  {
+                    name = "watch-chezmoi";
+                    command = "${watchChezmoi}";
+                    help = "watch chezmoi";
+                  }
+                  {
+                    name = "apply";
+                    command = "${applyAll}";
+                    help = "apply chezmoi+homemanager";
+                  }
+                  {
+                    name = "apply-homemanager";
+                    command = "${applyHomeManager}";
+                    help = "apply homemanager";
+                  }
+                  {
+                    name = "apply-chezmoi";
+                    command = "${applyChezmoi}";
+                    help = "apply chezmoi";
+                  }
+                ];
               name = "dots";
             };
           };

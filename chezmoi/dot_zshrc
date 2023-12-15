@@ -156,38 +156,30 @@ abbrev "..2"="../.."
 abbrev "..3"="../../.."
 abbrev "..4"="../../../.."
 
-##########################
-### AUTOSTART PROGRAMS ###
-##########################
-
 ###############
 ### PLUGINS ###
 ###############
-
-# like neofetch but smaller (startup and literal lines it outputs)
-pfetch
 
 # allows something like `z .dot` to go to `~/.dotfiles`
 if command -v pazi &>/dev/null; then
   eval "$(pazi init zsh)" # or 'bash'
 fi
 alias zf='z --pipe="fzf"'
-# better prompt
+
 eval "$(starship init zsh)"
 
 eval "$(direnv hook zsh)"
 
-# autocomplete (like from fish)
-source $HOME/.zsh/plugins/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
-# syntax highlighting
-source $HOME/.zsh/plugins/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# example: type `git clone https:` and then when you type arrow it will show all history with `git clone https:` at the start
-source $HOME/.zsh/plugins/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
-# use fzf as history fuzzy finder
-source $HOME/.zsh/plugins/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+source $PLUGIN_STORE/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PLUGIN_STORE/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGIN_STORE/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
-#####################
-### MISCELLANEOUS ###
-#####################
+#################
+### AUTOSTART ###
+#################
 
-# kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 1100
+pfetch
+
+kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 1100
+

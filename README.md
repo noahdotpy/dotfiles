@@ -10,5 +10,5 @@ Stuff may change without further notice.
 </div>
 
 ## Directory Structure
-- `dots`: chezmoi source
+- `chezmoi`: chezmoi source
 - `homemanager`: homemanager nix files
