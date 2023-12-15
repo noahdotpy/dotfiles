@@ -38,11 +38,12 @@
               commands = [
                 {
                   name = "watch";
-                  command = "${pkgs.findutils}/bin/find $HOME/.local/share/chezmoi/dots/ | ${pkgs.entr}/bin/entr chezmoi apply; home-manager switch --flake $HOME/.local/share/chezmoi";
+                  command = "${pkgs.findutils}/bin/find $HOME/.local/share/chezmoi/ | ${pkgs.entr}/bin/entr $HOME/.local/bin/apply.sh ";
                 }
                 {
-                  name = "apply";
-                  command = "chezmoi apply; home-manager switch --flake $HOME/.local/share/chezmoi";
+                  name = "
+                    apply ";
+                  command = "$HOME/.local/bin/apply.sh";
                 }
               ];
               name = "dots";
@@ -69,3 +70,4 @@
       };
     };
 }
+
