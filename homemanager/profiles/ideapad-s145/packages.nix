@@ -6,6 +6,7 @@
     vscodium
 
     # tui/cli
+    entr
     calc
     delta
     fzf
