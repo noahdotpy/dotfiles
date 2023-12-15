@@ -2,5 +2,22 @@
 	name = "noahdotpy"
 	email = noahdotpy@proton.me
 	signingkey = 7A9C4560DD856958 # <-- derived from the public key
+
 [commit]
 	gpgsign = true
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

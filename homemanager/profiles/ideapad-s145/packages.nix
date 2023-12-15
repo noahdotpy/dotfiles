@@ -1,25 +1,28 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    vscodium
+    # gui
     helix
     obsidian
+    vscodium
 
+    # tui/cli
+    calc
     delta
+    fzf
     gh
-    lazygit
     just
+    lazygit
+    lf
+    lsd
     ripgrep
 
+    # dev
     cargo
     cargo-modules
     cargo-watch
     gcc
     go
     rustfmt
-
-    calc
-    lsd
-    fzf
   ];
 }
 
