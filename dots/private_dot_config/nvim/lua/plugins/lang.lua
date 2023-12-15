@@ -59,6 +59,8 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
 	},
 
+	"gpanders/nvim-parinfer",
+
 	"alker0/chezmoi.vim",
 
 	{ import = "lazyvim.plugins.extras.lsp.none-ls" },
