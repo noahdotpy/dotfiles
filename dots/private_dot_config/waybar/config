@@ -19,7 +19,7 @@
     "persistent-workspaces": {
       "s1": "*",
       "term": "*",
-    }.
+    },
     "show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
@@ -95,9 +95,10 @@
   },
   "pulseaudio": {
     "scroll-step": 5,
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
+    "format-muted": "{volume}% ",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
