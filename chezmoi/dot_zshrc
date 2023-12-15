@@ -181,5 +181,6 @@ source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-hist
 
 pfetch
 
-kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 1100
+kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 123
+
 
