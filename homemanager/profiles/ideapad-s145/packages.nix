@@ -24,6 +24,9 @@
     gcc
     go
     rustfmt
+
+    # bible
+    xiphos
   ];
 }
 
