@@ -5,8 +5,11 @@
 }: {
   imports = [ ./packages.nix ./nix-config.nix ];
 
-  modules.fonts.enable = true;
-  # modules.neovim.enable = true;
-  modules.hyprland.enable = true;
-  modules.zsh.enable = true;
+  modules = {
+    fonts.enable = true;
+    gnome.enable = true;
+    hyprland.enable = true;
+    neovim.enable = true;
+    zsh.enable = true;
+  };
 }
