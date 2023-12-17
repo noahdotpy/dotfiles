@@ -27,8 +27,10 @@ in
           alphabetical-app-grid
           arcmenu
           blur-my-shell
+          custom-accent-colors
           just-perfection
           quick-settings-tweaker
+          user-themes
         ])
         (with pkgs; [
           adw-gtk3
