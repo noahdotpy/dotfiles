@@ -30,10 +30,11 @@
           devShells = {
             default = inputs'.devshell.legacyPackages.mkShell {
               packages = with pkgs; [
+		chezmoi
                 alejandra
                 git
-                nix
                 home-manager
+                nix
               ];
               commands =
                 let
