@@ -28,3 +28,5 @@
   ps = push
   pl = pull
   ft = fetch
+  in = init
+  cl = clone

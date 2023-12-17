@@ -14,6 +14,7 @@ in
       home.packages = with pkgs; [
         cliphist
         eww-wayland
+        grimblast
         hyprpaper
         nwg-look
         waybar
