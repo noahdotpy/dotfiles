@@ -21,3 +21,10 @@
 
 [diff]
   colorMoved = default
+
+[alias]
+  st = status
+  ci = commit -v
+  ps = push
+  pl = pull
+  ft = fetch
