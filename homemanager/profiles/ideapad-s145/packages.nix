@@ -6,9 +6,10 @@
     vscodium
 
     # tui/cli
-    entr
+    apx
     calc
     delta
+    entr
     fzf
     gh
     just

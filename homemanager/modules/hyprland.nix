@@ -13,12 +13,11 @@ in
     (mkIf cfg.enable {
       home.packages = with pkgs; [
         cliphist
-        hyprpaper
-        hyprpicker
-        wofi-emoji
-        waybar
         eww-wayland
+        hyprpaper
         nwg-look
+        waybar
+        wofi-emoji
       ];
     })
   ];
