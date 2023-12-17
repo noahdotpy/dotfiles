@@ -175,11 +175,13 @@ source $PLUGIN_STORE/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-hig
 source $PLUGIN_STORE/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
+
+
 #################
 ### AUTOSTART ###
 #################
 
-pfetch
+PF_INFO="ascii title os host kernel uptime memory" pfetch
 
 kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 120
 
