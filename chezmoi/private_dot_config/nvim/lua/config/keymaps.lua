@@ -71,3 +71,6 @@ map("n", "<leader>dah", function()
 end, { desc = "Apply homemanager" })
 
 map("n", "<leader>de", "<cmd>e ~/.local/share/chezmoi<cr>", { desc = "Edit dotfiles" })
+
+map({ "n", "v" }, "<leader>y", '"+y')
+map({ "n", "v" }, "<leader>p", '"+p')
