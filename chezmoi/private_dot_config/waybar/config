@@ -74,7 +74,7 @@
     // 24hr Robot Friendly
     "interval": 1,
     "format": "{:%H:%M:%S}",
-    "tooltip-format": "{:%d %b %Y - %H:%M:%S}"
+    "tooltip-format": "{:%a %d %b %Y - %H:%M:%S}"
   },
   "cpu": {
     "format": "{usage}% ",
