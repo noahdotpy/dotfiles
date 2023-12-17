@@ -12,3 +12,5 @@ Stuff may change without further notice.
 ## Directory Structure
 - `chezmoi`: chezmoi source
 - `homemanager`: homemanager nix files
+
+Nix homemanager is mostly only used to declare which packages I want. The reason I use chezmoi as well is because I like the experience of adding new files, changing existing files, etc.
