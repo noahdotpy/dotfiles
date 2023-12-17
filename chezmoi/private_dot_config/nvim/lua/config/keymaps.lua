@@ -57,3 +57,17 @@ end)
 map({ "n", "v" }, "T", function()
   hop.hint_char1({ hint_offset = -1 })
 end)
+
+map("n", "<leader>daa", function()
+  vim.fn.system({ "chezmoi", "apply" })
+end, { desc = "Apply homemanager+chezmoi" })
+
+map("n", "<leader>dac", function()
+  vim.fn.system({ "chezmoi", "apply" })
+end, { desc = "Apply chezmoi" })
+
+map("n", "<leader>dah", function()
+  vim.fn.system({ "home-manager", "switch", "--flake", "$HOME/.local/share/chezmoi/" })
+end, { desc = "Apply homemanager" })
+
+map("n", "<leader>de", "<cmd>e ~/.local/share/chezmoi<cr>", { desc = "Edit dotfiles" })
