@@ -7,6 +7,7 @@
 
     # tui/cli
     apx
+    btop
     calc
     delta
     entr
@@ -17,6 +18,7 @@
     lf
     lsd
     ripgrep
+    sd
 
     # dev
     cargo
