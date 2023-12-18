@@ -9,6 +9,7 @@
     apx
     btop
     calc
+    chezmoi
     delta
     entr
     fzf
