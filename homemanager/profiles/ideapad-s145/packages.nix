@@ -1,9 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # gui
-    helix
-    obsidian
-    vscodium
+    brave
 
     # tui/cli
     apx
@@ -28,9 +26,7 @@
     gcc
     go
     rustfmt
-
-    # bible
-    xiphos
+    vscodium
   ];
 }
 
