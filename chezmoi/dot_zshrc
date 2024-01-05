@@ -181,6 +181,6 @@ source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-hist
 
 PF_INFO="ascii title os host kernel uptime memory" pfetch
 
-kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 120
+kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 30
 
 
