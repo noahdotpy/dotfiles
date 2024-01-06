@@ -11,6 +11,9 @@ in
   options.modules.neovim = { enable = mkEnableOption "neovim"; };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      neovide
+    ];
     programs.neovim = {
       enable = true;
       extraPackages = with pkgs; [
