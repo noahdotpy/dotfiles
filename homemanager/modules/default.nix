@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./neovim.nix
     ./plasma.nix
+    ./wayland.nix
     ./zsh.nix
   ];
 }

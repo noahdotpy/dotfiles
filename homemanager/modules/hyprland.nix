@@ -11,6 +11,7 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      modules.wayland.enable = true;
       home.packages = with pkgs; [
         cliphist
         eww-wayland
