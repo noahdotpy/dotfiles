@@ -7,7 +7,7 @@
 
   modules = {
     fonts.enable = true;
-    hyprland.enable = true;
+    plasma.enable = true;
     neovim.enable = true;
     zsh.enable = true;
   };

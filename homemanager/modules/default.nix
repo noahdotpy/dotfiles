@@ -7,8 +7,9 @@
   imports = [
     ./fonts.nix
     ./gnome.nix
-    ./neovim.nix
-    ./zsh.nix
     ./hyprland.nix
+    ./neovim.nix
+    ./plasma.nix
+    ./zsh.nix
   ];
 }
