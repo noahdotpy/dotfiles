@@ -28,7 +28,7 @@
     gcc
     go
     rustfmt
-    vscodium
+    vscode
   ];
 }
 
