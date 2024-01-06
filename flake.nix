@@ -11,6 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixgl.url = "github:guibou/nixGL";
+
     devshell.url = "github:numtide/devshell";
 
     parts.url = "github:hercules-ci/flake-parts";
@@ -99,7 +101,10 @@
       flake = {
         homeConfigurations."noah@ideapad-s145" =
           inputs.homemanager.lib.homeManagerConfiguration {
-            pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+            pkgs = import inputs.nixpkgs {
+              system = "x86_64-linux";
+              overlays = [ inputs.nixgl.overlay ];
+            };
             modules = [
               {
                 _module.args = {
