@@ -12,7 +12,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = { colorscheme = "adwaita" },
+      opts = { colorscheme = "github_light_default" },
     },
     { import = "plugins" },
   },
