@@ -10,10 +10,8 @@
     btop
     calc
     chezmoi
-    delta
     entr
     fzf
-    gh
     just
     lazygit
     lf
@@ -25,8 +23,12 @@
     cargo
     cargo-modules
     cargo-watch
+    delta
     gcc
+    gh
     go
+    meson
+    ninja
     rustfmt
     vscode
   ];
