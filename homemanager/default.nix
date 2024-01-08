@@ -1,10 +1,11 @@
-{ self
-, config
-, pkgs
-, inputs
-, ...
+{
+  self,
+  config,
+  pkgs,
+  inputs,
+  ...
 }: {
-  imports = [ ./modules ];
+  imports = [./modules];
 
   home = rec {
     username = "noah";

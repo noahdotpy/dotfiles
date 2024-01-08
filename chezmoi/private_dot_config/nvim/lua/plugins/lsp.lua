@@ -1,7 +1,7 @@
 return {
   {
     "smjonas/inc-rename.nvim",
-    opts = { input_buffer_type = "dressing" }
+    opts = { input_buffer_type = "dressing" },
   },
   {
     "neovim/nvim-lspconfig",
@@ -11,12 +11,13 @@ return {
         gopls = {},
         jsonls = {},
         pyright = {},
+        rnix = {},
         rust_analyzer = {},
         tsserver = {},
         vala_ls = {},
         vls = {},
         zls = {},
-      }
-    }
+      },
+    },
   },
 }
