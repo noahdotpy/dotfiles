@@ -31,6 +31,9 @@
     ninja
     rustfmt
     vscode
+
+    # dependencies
+    gum
   ];
 }
 
