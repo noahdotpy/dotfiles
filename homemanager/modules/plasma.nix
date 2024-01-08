@@ -15,6 +15,7 @@ in
         arc-kde-theme
         arc-theme
         papirus-icon-theme
+      adw-gtk3
       ];
     })
   ];
