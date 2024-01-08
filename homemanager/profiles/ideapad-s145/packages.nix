@@ -3,7 +3,7 @@
     nixgl.nixGLIntel
 
     # gui
-    brave
+    chromium
 
     # tui/cli
     apx
