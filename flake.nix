@@ -44,13 +44,9 @@
                   find = "${pkgs.findutils}/bin/find";
                   entr = "${pkgs.entr}/bin/entr";
 
-                  findAllFilesExpr = "${path}/{chezmoi,homemanager,flake.nix}";
-                  findNixFilesExpr = "${path}/{homemanager,flake.nix}";
-                  findChezmoiFilesExpr = "${path}/chezmoi";
-
-                  findAllFiles = "${find} ${findAllFilesExpr}";
-                  findNixFiles = "${find} ${findNixFilesExpr}";
-                  findChezmoiFiles = "${find} ${findChezmoiFilesExpr}";
+                  findAllFiles = "${find} ${path}/{chezmoi,homemanager,flake.nix}";
+                  findNixFiles = "${find} ${path}/{homemanager,flake.nix}";
+                  findChezmoiFiles = "${find} ${path}/chezmoi";
 
                   applyAll = "$HOME/.local/bin/apply.sh";
                   applyHomeManager = "home-manager switch --flake ${path}";
