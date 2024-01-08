@@ -1,4 +1,9 @@
-{inputs', inputs, pkgs, ...}: {
+{
+  inputs',
+  inputs,
+  pkgs,
+  ...
+}: {
   devShells = {
     default = inputs'.devshell.legacyPackages.mkShell {
       packages = with pkgs; [
