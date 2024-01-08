@@ -1,12 +1,12 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib; let
   cfg = config.modules.gnome;
-in
-{
+in {
   options.modules.gnome.enable = mkEnableOption "gnome";
 
   config = mkMerge [

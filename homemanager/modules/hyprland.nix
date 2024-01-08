@@ -1,12 +1,12 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib; let
   cfg = config.modules.hyprland;
-in
-{
+in {
   options.modules.hyprland.enable = mkEnableOption "hyprland";
 
   config = mkMerge [

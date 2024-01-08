@@ -1,14 +1,14 @@
-{ pkgs
-, lib
-, config
-, myPkgs
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  myPkgs,
+  ...
 }:
 with lib; let
   cfg = config.modules.neovim;
-in
-{
-  options.modules.neovim = { enable = mkEnableOption "neovim"; };
+in {
+  options.modules.neovim = {enable = mkEnableOption "neovim";};
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

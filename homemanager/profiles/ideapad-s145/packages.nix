@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nixgl.nixGLIntel
 
@@ -36,4 +36,3 @@
     gum
   ];
 }
-

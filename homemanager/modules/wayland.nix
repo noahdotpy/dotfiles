@@ -1,12 +1,12 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib; let
   cfg = config.modules.wayland;
-in
-{
+in {
   options.modules.wayland.enable = mkEnableOption "wayland";
 
   config = mkMerge [

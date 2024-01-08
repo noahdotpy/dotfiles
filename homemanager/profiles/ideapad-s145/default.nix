@@ -1,9 +1,10 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  ...
 }: {
-  imports = [ ./packages.nix ./nix-config.nix ];
+  imports = [./packages.nix ./nix-config.nix];
 
   modules = {
     fonts.enable = true;
