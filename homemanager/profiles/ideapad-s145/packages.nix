@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     nixgl.nixGLIntel
 
@@ -16,6 +16,7 @@
     lazygit
     lf
     lsd
+    pfetch-rs
     ripgrep
     sd
 
