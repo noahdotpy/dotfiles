@@ -183,4 +183,4 @@ PF_INFO="ascii title os host kernel uptime memory" pfetch
 
 kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 30
 
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
