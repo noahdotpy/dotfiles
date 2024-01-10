@@ -15,7 +15,7 @@
 sudo_command = "pkexec"
 
 # Disable specific steps - same options as the command line flag
-disable = ["system", "home_manager"]
+disable = ["home_manager"]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
@@ -48,7 +48,7 @@ disable = ["system", "home_manager"]
 # run_in_tmux = true
 
 # Cleanup temporary or old files (default: false)
-cleanup = true
+# cleanup = true
 
 # Send a notification for every step (default: false)
 # notify_each_step = false
@@ -90,7 +90,6 @@ cleanup = true
 [commands]
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
-"Fedora Ostree" = "rpm-ostree upgrade"
 "Home Manager" = "nix flake update ~/.local/share/chezmoi && home-manager switch --flake ~/.local/share/chezmoi"
 
 
@@ -145,7 +144,7 @@ cleanup = true
 
 # suse_dup = false
 
-# rpm_ostree = false
+rpm_ostree = true
 
 # nix_arguments = "--flake"
 
