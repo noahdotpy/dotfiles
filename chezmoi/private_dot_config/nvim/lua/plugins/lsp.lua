@@ -14,7 +14,6 @@ return {
         rnix = {},
         rust_analyzer = {},
         tsserver = {},
-        vala_ls = {},
         vls = {},
         zls = {},
       },
