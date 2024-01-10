@@ -1,10 +1,9 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
+{ inputs
+, config
+, pkgs
+, ...
 }: {
-  imports = [./packages.nix ./nix-config.nix];
+  imports = [ ./packages.nix ./nix-config.nix ];
 
   modules = {
     fonts.enable = true;
@@ -12,5 +11,10 @@
     plasma.enable = true;
     wayland.enable = true;
     zsh.enable = true;
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }
