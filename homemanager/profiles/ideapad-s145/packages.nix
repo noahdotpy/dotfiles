@@ -19,6 +19,7 @@
     pfetch-rs
     ripgrep
     sd
+    topgrade
 
     # dev
     cargo
