@@ -22,6 +22,9 @@
 [diff]
   colorMoved = default
 
+[push]
+  autoSetupRemote = true
+
 [alias]
   st = status
   ci = commit -v
