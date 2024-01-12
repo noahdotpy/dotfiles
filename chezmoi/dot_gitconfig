@@ -33,3 +33,6 @@
   ft = fetch
   in = init
   cl = clone
+
+[init]
+  defaultBranch = main
