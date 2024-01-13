@@ -9,6 +9,9 @@ Please note that this is my own personal dotfiles.
 Stuff may change without further notice.
 </div>
 
+## Use
+- `chezmoi init noahdotpy/mydotfiles --apply`
+
 ## Directory Structure
 - `chezmoi`: chezmoi source
 - `homemanager`: homemanager nix files
