@@ -10,7 +10,8 @@ Stuff may change without further notice.
 </div>
 
 ## Use
-- `chezmoi init noahdotpy/mydotfiles --apply`
+- ```chezmoi init noahdotpy/mydotfiles --apply```
+- ```home-manager switch --flake ~/.local/share/chezmoi```
 
 ## Directory Structure
 - `chezmoi`: chezmoi source
