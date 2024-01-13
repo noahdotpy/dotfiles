@@ -1,6 +1,6 @@
 <div align="center">
 
-#### My dotfiles managed with Chezmoi :house_with_garden: and NixOS :snowflake:&nbsp;
+#### My dotfiles managed with Chezmoi :house_with_garden: and Nix :snowflake:&nbsp;
 
 
 ## :warning:&nbsp; WARNING :warning:&nbsp;
