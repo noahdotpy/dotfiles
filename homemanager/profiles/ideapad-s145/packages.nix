@@ -11,6 +11,7 @@
     calc
     chezmoi
     entr
+    fd
     fzf
     just
     lazygit
