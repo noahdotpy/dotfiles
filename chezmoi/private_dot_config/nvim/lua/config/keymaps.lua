@@ -75,6 +75,9 @@ map("n", "<leader>de", "<cmd>e ~/.local/share/chezmoi<cr>", { desc = "Edit dotfi
 map({ "n", "v" }, "<leader>y", '"+y')
 map({ "n", "v" }, "<leader>p", '"+p')
 
+map({ "n", "v" }, "<tab>", "<cmd>bnext<cr>")
+map({ "n", "v" }, "<S-tab>", "<cmd>bprevious<cr>")
+
 map(
   "n",
   "<leader>fx",
