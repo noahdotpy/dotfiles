@@ -106,7 +106,6 @@ export BROWSER="brave-browser"
 
 # Container shortcuts
 function '@'() {
-    echo "$1"
   if [ "$1" = "" ]; then
       distrobox-list
   else
@@ -116,13 +115,9 @@ function '@'() {
       distrobox-enter $NAME -- "$ARGS"
   fi
 }
+abbrev '@host'="distrobox-host-exec"
 
 # Program shortcuts
-
-function ze() {
-  pazi_cd $1 && $EDITOR .  
-}
-abbrev e="$EDITOR"
 
 # [e]dit [e]xecutable
 function ee() {
@@ -143,7 +138,9 @@ abbrev lg="lazygit"
 abbrev ls="lsd"
 abbrev l="lsd -Ahl"
 
-abbrev j="just -f $HOME/.justfile"
+abbrev sys="rpm-ostree"
+abbrev sysupd="rpm-ostree upgrade"
+abbrev sysinfo="rpm-ostree status"
 
 abbrev nv="nvim"
 abbrev lv="lvim"
@@ -164,7 +161,16 @@ abbrev "..4"="../../../.."
 if command -v pazi &>/dev/null; then
   eval "$(pazi init zsh)" # or 'bash'
 fi
-alias zf='z --pipe="fzf"'
+abbrev zf='z --pipe="fzf"'
+abbrev e="$EDITOR"
+abbrev .="e ."
+function ze() {
+  pazi_cd $1 && $EDITOR .  
+}
+function zfe() {
+  zf $1 && e .
+}
+
 
 eval "$(starship init zsh)"
 
