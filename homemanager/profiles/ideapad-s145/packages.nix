@@ -2,9 +2,6 @@
   home.packages = with pkgs; [
     nixgl.nixGLIntel
 
-    # gui
-    chromium
-
     # tui/cli
     apx
     bat
