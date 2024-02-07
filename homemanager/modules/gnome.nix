@@ -1,35 +1,32 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 with lib; let
   cfg = config.modules.gnome;
-in {
+in
+{
   options.modules.gnome.enable = mkEnableOption "gnome";
 
   config = mkMerge [
     (mkIf cfg.enable {
       xsession.enable = true;
-      gtk = {
-        theme = {
-          name = "Adw-gtk3-dark";
-          package = pkgs.adw-gtk3;
-        };
-        iconTheme = {
-          name = "Mint-Y-Teal";
-          package = pkgs.cinnamon.mint-y-icons;
-        };
-      };
       home.packages = mkMerge [
         (with pkgs.gnomeExtensions; [
           alphabetical-app-grid
-          arcmenu
+          battery-health-charging
           blur-my-shell
-          custom-accent-colors
+          caffeine
+          compiz-windows-effect
+          fuzzy-app-search
+          gsconnect
+          hot-edge
           just-perfection
-          quick-settings-tweaker
+          lock-keys
+          pano
+          pop-shell
+          smile-complementary-extension
           user-themes
         ])
         (with pkgs; [
