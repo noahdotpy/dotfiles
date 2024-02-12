@@ -9,6 +9,7 @@
     package = pkgs.nix;
     registry = {
       nixpkgs.flake = inputs.nixpkgs;
+      nixpkgs-stable.flake = inputs.nixpkgs-stable;
       nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
     };
     extraOptions = ''
