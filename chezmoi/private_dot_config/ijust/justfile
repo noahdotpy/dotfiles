@@ -8,5 +8,4 @@ _default:
     /usr/bin/just --list --list-heading $'Available commands:\n' --list-prefix $' - '
 
 # Imports
-import "~/.config/ijust/modules/system.just"
 import "~/.config/ijust/modules/distrobox.just"
