@@ -190,7 +190,7 @@ source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-hist
 ### AUTOSTART ###
 #################
 
-PF_INFO="ascii title os host kernel uptime memory" pfetch
+PF_INFO="ascii title os host kernel uptime memory" PF_CUSTOM_LOGOS="$HOME/.config/pfetch/custom_logos" PF_ASCII="cross" pfetch
 
 kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 30
 
