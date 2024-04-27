@@ -2,6 +2,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.local/bin/distrobox-exported/:$PATH"
 export PATH="$HOME/.local/share/flatpak/exports/bin/:$PATH" # allow something like `org.gimp.GIMP`
 export PATH="$HOME/go/bin/:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/.nix-profile/bin/:$PATH"
 export PATH="$PATH:/run/host/nix/var/nix/profiles/default/bin/"
 export PATH="$PATH:$HOME/.config/nvim/bin/"
@@ -140,6 +141,8 @@ abbrev g="git"
 abbrev gs="git status"
 abbrev lg="lazygit"
 
+abbrev pacman="sudo pacman"
+
 abbrev ls="lsd"
 abbrev l="lsd -Ahl"
 
@@ -190,8 +193,9 @@ source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-hist
 ### AUTOSTART ###
 #################
 
-PF_INFO="ascii title os host kernel uptime memory" PF_CUSTOM_LOGOS="$HOME/.config/pfetch/custom_logos" PF_ASCII="cross" pfetch
+# PF_INFO="ascii title os host kernel uptime memory" PF_CUSTOM_LOGOS="$HOME/.config/pfetch/custom_logos" PF_ASCII="cross" pfetch
+fastfetch
 
-kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 30
+# kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | lolcat -S 30
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
