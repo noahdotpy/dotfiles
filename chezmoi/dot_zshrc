@@ -31,6 +31,7 @@ function clone-my-plugins() {
     plugin-clone github.com/zsh-users/zsh-history-substring-search
     plugin-clone github.com/zsh-users/zsh-autosuggestions
     plugin-clone github.com/joshskidmore/zsh-fzf-history-search
+    plugin-clone github.com/marlonrichert/zsh-autocomplete
 }
 
 function plugin-clone() {
@@ -166,17 +167,18 @@ abbrev "..4"="../../../.."
 ###############
 
 # allows something like `z .dot` to go to `~/.dotfiles`
-if command -v pazi &>/dev/null; then
-  eval "$(pazi init zsh)" # or 'bash'
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)" # or 'bash'
 fi
-abbrev zf='z --pipe="fzf"'
+alias cd="z"
+alias cdi="zi"
 abbrev e="$EDITOR"
 abbrev .="e ."
-function ze() {
-  pazi_cd $1 && $EDITOR .  
+function cde() {
+  cd $1 && $EDITOR .  
 }
-function zfe() {
-  zf $1 && e .
+function cdie() {
+  cdi $1 && e .
 }
 
 
@@ -188,6 +190,7 @@ source $PLUGIN_STORE/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestion
 source $PLUGIN_STORE/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PLUGIN_STORE/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+source $PLUGIN_STORE/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 #################
 ### AUTOSTART ###
