@@ -16,10 +16,6 @@
     "clock"
   ],
   "hyprland/workspaces": {
-    "persistent-workspaces": {
-      "s1": "*",
-      "term": "*",
-    },
     "show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
