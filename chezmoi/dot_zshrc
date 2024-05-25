@@ -143,6 +143,7 @@ abbrev gs="git status"
 abbrev lg="lazygit"
 
 abbrev pacman="sudo pacman"
+abbrev pkg="mpm"
 
 abbrev ls="lsd"
 abbrev l="lsd -Ahl"
