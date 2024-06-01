@@ -1,6 +1,3 @@
 return {
-  {
-    "phaazon/hop.nvim",
-    opts = {}
-  }
+  "phaazon/hop.nvim",
 }
