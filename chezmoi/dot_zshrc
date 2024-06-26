@@ -144,6 +144,7 @@ abbrev lg="lazygit"
 
 abbrev pacman="sudo pacman"
 abbrev pkg="mpm"
+abbrev bbic="brew update && brew bundle install --cleanup --file=~/.config/Brewfile --no-lock && brew upgrade"
 
 abbrev ls="lsd"
 abbrev l="lsd -Ahl"
