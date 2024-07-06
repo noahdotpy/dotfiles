@@ -10,3 +10,4 @@ _default:
 # Imports
 import "~/.config/ijust/modules/distrobox.just"
 import "~/.config/ijust/modules/idwtn.just"
+import "~/.config/ijust/modules/system.just"
