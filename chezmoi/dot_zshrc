@@ -201,5 +201,3 @@ source $PLUGIN_STORE/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.
 fastfetch
 
 kjv $(sort -R $HOME/.local/share/zsh-bible/verses | head -n 1) | cowsay | head -n -5 | lolcat -S 25
-
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
