@@ -32,6 +32,7 @@ function clone-my-plugins() {
     plugin-clone github.com/zsh-users/zsh-autosuggestions
     plugin-clone github.com/joshskidmore/zsh-fzf-history-search
     plugin-clone github.com/marlonrichert/zsh-autocomplete
+    plugin-clone github.com/zsh-users/zsh-completions
 }
 
 function plugin-clone() {
@@ -193,6 +194,8 @@ source $PLUGIN_STORE/github.com/zsh-users/zsh-syntax-highlighting/zsh-syntax-hig
 source $PLUGIN_STORE/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $PLUGIN_STORE/github.com/joshskidmore/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 source $PLUGIN_STORE/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+fpath=($PLUGIN_STORE/github.com/zsh-users/zsh-completions/src $fpath)
 
 #################
 ### AUTOSTART ###
