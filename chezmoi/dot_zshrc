@@ -100,8 +100,6 @@ setopt share_history
 
 # SET ENVIRONMENTAL VARIABLES
 export EDITOR="nvim"
-export TERMINAL="kitty"
-export BROWSER="brave-browser"
 
 #############################
 ### ABBREVIATIONS/ALIASES ###
@@ -134,10 +132,8 @@ function ee() {
 
 abbrev x="clear"
 
-abbrev dot="chezmoi"
-abbrev dotsw="(cd ~/.local/share/chezmoi; home-manager switch --flake .)"
-abbrev hm="home-manager"
-abbrev hmsw="home-manager switch --flake $HOME/.local/share/chezmoi"
+abbrev dots="chezmoi"
+abbrev dotsa="chezmoi apply"
 
 abbrev g="git"
 abbrev gs="git status"
@@ -150,9 +146,7 @@ abbrev bbic="brew update && brew bundle install --cleanup --file=~/.config/Brewf
 abbrev ls="lsd"
 abbrev l="lsd -Ahl"
 
-abbrev sys="rpm-ostree"
-abbrev sysupd="rpm-ostree upgrade"
-abbrev sysinfo="rpm-ostree status"
+abbrev image="rpm-ostree"
 
 abbrev nv="nvim"
 abbrev lv="lvim"
