@@ -6,5 +6,5 @@ $env.config = {
     }
 }
 
-source ./aliases.nu
-source ./autorun.nu
+source /home/noah/.config/nushell/aliases.nu
+source /home/noah/.config/nushell/autorun.nu
