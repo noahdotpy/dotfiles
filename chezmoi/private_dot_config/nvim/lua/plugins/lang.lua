@@ -47,6 +47,10 @@ return {
       },
     },
   },
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+  },
 
   "gpanders/nvim-parinfer",
   "alker0/chezmoi.vim",
