@@ -1,6 +1,10 @@
 # Nushell Config File
 
-export def nothing [] {}
+$env.config = {
+  rm: {
+      always_trash: true
+    }
+}
 
 # TODO: Switch to `ugum choose` for choosing which option
 # Container shortcuts
