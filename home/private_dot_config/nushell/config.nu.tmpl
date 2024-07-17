@@ -1,0 +1,10 @@
+# Nushell Config File
+
+$env.config = {
+  rm: {
+      always_trash: true
+    }
+}
+
+source {{ .chezmoi.homeDir }}/.config/nushell/aliases.nu
+source {{ .chezmoi.homeDir }}/.config/nushell/autorun.nu
