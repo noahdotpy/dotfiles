@@ -5,7 +5,9 @@
 export def '@' [choice = "", params = ""] {
   let name = $choice
   if $name == "" {
-    let name = (echo $"(distrobox list | tail -n +2 | cut -d '|' -f2)\n host" | fzf | xargs)
+    let distroboxes = distrobox list | tail -n +2 | cut -d '|' -f2 | xargs | split row ' '
+    let choices = $distroboxes | append "host"
+    let name = ugum choose ...$choices
   }
 
   if $name == "host" {
