@@ -1,0 +1,2 @@
+#!/usr/bin/env nu
+yes skip | /usr/bin/chezmoi apply --keep-going --no-tty
