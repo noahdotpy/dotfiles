@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env nu
+# Brewfile hash: {{ include "private_dot_config/Brewfile" | sha256sum }}
+brew update
+brew bundle install --cleanup --file=~/.config/Brewfile --no-lock
+brew upgrade
+{{ end -}}
