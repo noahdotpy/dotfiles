@@ -25,6 +25,6 @@ alias image = rpm-ostree
 alias g = git
 alias lg = lazygit
 
-export def e [params] {
-    ^$"($env.EDITOR)" $params
+export def e [...params] {
+    ^$env.EDITOR ...$params
 }
