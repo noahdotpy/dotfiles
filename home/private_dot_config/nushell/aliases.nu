@@ -1,6 +1,5 @@
 # Nushell Alias File
 
-# TODO: Switch to `ugum choose` for choosing which option
 # Container shortcuts
 export def '@' [choice = "", params = ""] {
   let name = $choice

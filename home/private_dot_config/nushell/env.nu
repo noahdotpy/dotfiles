@@ -2,4 +2,5 @@
 
 source /etc/nushell/profile
 
-zoxide init nushell | save -f ~/.cache/zoxide.nu
+zoxide init nushell --cmd cd | save -f ~/.cache/zoxide.nu
+source ~/.cache/zoxide.nu
