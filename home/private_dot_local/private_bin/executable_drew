@@ -1,0 +1,31 @@
+#!/usr/bin/env nu
+
+let config_file = $"($env.HOME)/.local/share/chezmoi/home/private_dot_config/Brewfile"
+let brew_c = "/var/home/linuxbrew/.linuxbrew/bin/brew"
+
+def "main apply" [] {
+    echo "INFO: Applying"
+    ^$brew_c update
+    ^$brew_c bundle install --cleanup $"--file=($config_file)" --no-lock
+    ^$brew_c upgrade
+}
+
+def "main install" [
+    package: string
+] {
+    if ((open $config_file) =~ $"brew \"($package)\"") {
+        echo "INFO: Skipping appending package, already exists"
+    }
+    echo $"\nbrew \"($package)\"" | save -a $config_file
+    main apply
+}
+
+def "main edit" [
+    --editor = "nvim"
+] {
+    ^$"($editor)" $config_file
+}
+
+def main [] {
+    drew --help
+}
