@@ -43,4 +43,5 @@ return {
   },
 
   "lewis6991/satellite.nvim",
+  "LintaoAmons/cd-project.nvim",
 }

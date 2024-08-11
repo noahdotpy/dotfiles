@@ -76,3 +76,6 @@ map(
   "<cmd>!chmod +x %<cr>", -- .. vim.cmd('expand("%:p")') .. "<cr>",
   { desc = "Make current file executable" }
 )
+
+map({ "n", "v" }, "<leader>qp", "<cmd>CdProject<cr>", { desc = "Cd Project" })
+map({ "n", "v" }, "<leader>qa", "<cmd>CdProjectAdd<cr>", { desc = "Add Project" })

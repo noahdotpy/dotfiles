@@ -7,7 +7,7 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = { "rouge8/neotest-rust" },
+    dependencies = { "rouge8/neotest-rust", "nvim-neotest/nvim-nio" },
     config = function()
       require("neotest").setup({
         adapters = {
