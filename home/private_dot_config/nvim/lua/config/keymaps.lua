@@ -62,8 +62,6 @@ map("n", "<leader>da", function()
   vim.fn.system({ "chezmoi", "apply" })
 end, { desc = "Apply chezmoi changes" })
 
-map("n", "<leader>de", "<cmd>e ~/.local/share/chezmoi<cr>", { desc = "Edit dotfiles" })
-
 map({ "n", "v" }, "<leader>y", '"+y')
 map({ "n", "v" }, "<leader>p", '"+p')
 
