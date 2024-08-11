@@ -44,4 +44,6 @@ return {
 
   "lewis6991/satellite.nvim",
   "LintaoAmons/cd-project.nvim",
+
+  { import = "lazyvim.plugins.extras.ui.edgy" },
 }
