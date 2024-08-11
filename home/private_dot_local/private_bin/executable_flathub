@@ -1,0 +1,15 @@
+#!/usr/bin/env nu
+
+def "main install" [
+  --user(-u)
+  --yes(-y)
+  ...packages
+] {
+  let repo = if $user {
+    "flathub-user"
+  } else {
+    "flathub-system"
+  }
+  flatpak install $repo ...$packages (if $yes  {"-y"} else {""})
+}
+def "main" [] {}
