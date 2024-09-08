@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-def main [--shutdown] {
+def main [] {
     let choices = {
         "Block Internet for Current User": {
           id: "block-internet"
@@ -13,6 +13,9 @@ def main [--shutdown] {
         }
         "Block Networking for a Flatpak App": {
           id: "block-flatapp-net"
+        }
+        "Block URL in Chromium": {
+          id: "chromium-block-url"
         }
     }
     let choices_names = $choices | columns
@@ -30,34 +33,32 @@ def main [--shutdown] {
       notify-send --app-name "I Don't Want To" "Aborted Lockdown"
     }
       
+    if "chromium-block-url" in $chosen_ids {
+      let urls = ugum input --header="URLs separated by `,` (example: facebook.com)" --header.foreground="99" | split row ','
+      for url in $urls {
+        /usr/bin/idwt tighten config $'.chromium.block-urls += "($url)"'
+      }
+    }
     if "block-internet" in $chosen_ids {
-      /usr/bin/idwt tighten config $"update user-networking.users.($env.USER).mode block"
+      /usr/bin/idwt tighten config $'.user-networking.($env.USER).mode = "block"'
     }
     if "block-host" in $chosen_ids {
-      let host = ugum input --header="Host (example: facebook.com" --header.foreground="99"
-      /usr/bin/idwt tighten config $"append block-hosts ($host)"
+      # TODO: Allow multiple host blocks by entering them separated by commas (',')
+      let hosts = ugum input --header="Hosts separated by `,` (example: facebook.com)" --header.foreground="99" | split row ','
+      for host in $hosts {
+        /usr/bin/idwt tighten config $'.block-hosts += "($host)"'
+      }
     }
     if "unadmin" in $chosen_ids {
       /usr/bin/idwt tighten group remove $env.USER wheel
     }
     if "block-flatapp-net" in $chosen_ids {
-      let app_id = ugum input --header="Flatpak ID (example: com.spotify.Client)" --header.foreground="99"
-      /usr/bin/idwt tighten config append block-flatpak-networking.apps $app_id
+      # TODO: Allow multiple flatpak app blocks by entering them separated by commas (',')
+      let app_ids = ugum input --header="Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ','
+      for app_id in $app_ids {
+        /usr/bin/idwt tighten config $'.block-flatpak-networking.apps += "($app_id)"'
+      }
     }
     
     notify-send --app-name "I Don't Want To" "Lockdown completed with these choices:" ($chosen | str join "\n") -u critical
-    
-    if $shutdown {
-        systemctl poweroff
-    }
-    
-    let shutdown_response = ugum choose Yes No --header "Do you want to shutdown your computer?"
-    if $shutdown_response == "Yes" {
-        let confirm_shutdown = ugum choose Yes No --header "Are you sure you want to shutdown your computer?"
-        if $confirm_shutdown == "Yes" {
-            systemctl poweroff
-        } else {
-            exit
-        }
-    }
 }
