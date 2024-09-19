@@ -6,7 +6,7 @@ use std *
 
 path add $"($env.HOME)/.local/bin/"
 
-$env.EDITOR = "neovide"
+$env.EDITOR = "nvim"
 
 zoxide init nushell --cmd cd | save -f ~/.cache/zoxide.nu
 source ~/.cache/zoxide.nu
