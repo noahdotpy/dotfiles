@@ -5,8 +5,8 @@ def main [] {
         "Block Internet for Current User": {
           id: "block-internet"
         }
-        "Block Host": {
-          id: "block-host"
+        "Block Sites": {
+          id: "block-sites"
         }
         "Remove Admin Privileges from Current User": {
           id: "unadmin"
@@ -14,9 +14,12 @@ def main [] {
         "Block Networking for a Flatpak App": {
           id: "block-flatapp-net"
         }
-        "Block URL in Chromium": {
-          id: "chromium-block-url"
+        "Remove Allow Rule for Networking in a Flatpak App": {
+          id: "remove-allow-flatapp"
         }
+      # "Block Window on KWin": {
+      #   id: "kwin-window-blocks"
+      # }
     }
     let choices_names = $choices | columns
     
@@ -32,33 +35,62 @@ def main [] {
     if $confirm_response == "No" {
       notify-send --app-name "I Don't Want To" "Aborted Lockdown"
     }
-      
-    if "chromium-block-url" in $chosen_ids {
-      let urls = ugum input --header="URLs separated by `,` (example: facebook.com)" --header.foreground="99" | split row ','
-      for url in $urls {
-        /usr/bin/idwt tighten config $'.chromium.block-urls += "($url)"'
-      }
-    }
+
     if "block-internet" in $chosen_ids {
-      /usr/bin/idwt tighten config $'.user-networking.($env.USER).mode = "block"'
+      sudo iptables -A OUTPUT -m owner --uid-owner noah -j REJECT
+      /usr/bin/idwt tighten config $'.networking.mode = "block"'
     }
-    if "block-host" in $chosen_ids {
-      # TODO: Allow multiple host blocks by entering them separated by commas (',')
-      let hosts = ugum input --header="Hosts separated by `,` (example: facebook.com)" --header.foreground="99" | split row ','
-      for host in $hosts {
-        /usr/bin/idwt tighten config $'.block-hosts += "($host)"'
+
+    if "block-sites" in $chosen_ids {
+      let sites = ugum input --header="ADD SITE BLOCK: Sites separated by `,` (example: facebook.com, u.pluckeye.net/devices)" --header.foreground="99" | split row ','
+      for site in $sites {
+        /usr/bin/idwt tighten config $'.block-sites += ["($site)"]'
       }
     }
+
     if "unadmin" in $chosen_ids {
       /usr/bin/idwt tighten group remove $env.USER wheel
     }
+
     if "block-flatapp-net" in $chosen_ids {
       # TODO: Allow multiple flatpak app blocks by entering them separated by commas (',')
-      let app_ids = ugum input --header="Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ','
+      let app_ids = ugum input --header="ADD FLATPAK BLOCK: Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ','
       for app_id in $app_ids {
-        /usr/bin/idwt tighten config $'.block-flatpak-networking.apps += "($app_id)"'
+        /usr/bin/idwt tighten config $'.flatpak-app-networking += ["($app_id)"]'
       }
     }
+
+    if "remove-allow-flatapp" in $chosen_ids {
+      let app_ids = ugum input --header="REMOVE FLATPAK ALLOW: Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ','
+      for app_id in $app_ids {
+        /usr/bin/idwt tighten config $'.flatpak-app-networking.allow-only -= ["($app_id)"]'
+      }
+    }
+
+# TODO: actually implement this
+  # if "kwin-window-blocks" in $chosen_ids {
+  #   let rule = {}
+  #   let class = ugum input --header="Window Class (leave empty to skip)" --header.foreground="99"
+  #   let rule = if (not ($class | is-empty)) {
+  #     $rule | insert class.value $class | insert class.whole_window_class $whole_class
+  #   } else $rule
+  #   let whole_class = if (not ($class | is-empty)) {
+  #     ugum choose true false --header "Match whole window class?" 
+  #   } else ""
+  #   let class_match = if (not ($class | is-empty)) {
+  #     ugum choose substring regex exact --header="What type of matching do you want for the class?"
+  #   } else ""
+  #
+  #   let title = ugum input --header="Window Title (leave empty to skip)" --header.foreground="99"
+  #   let title_match = if (not ($title | is-empty)) {
+  #     ugum choose substring regex exact --header="What type of matching do you want for the title?"
+  #   } else ""
+  #
+  #   let role = ugum input --header="Window Role (leave empty to skip)" --header.foreground="99"
+  #   let role_match = if (not ($role | is-empty)) {
+  #     ugum choose substring regex exact --header="What type of matching do you want for the role?"
+  #   } else ""
+  # }
     
     notify-send --app-name "I Don't Want To" "Lockdown completed with these choices:" ($chosen | str join "\n") -u critical
 }
