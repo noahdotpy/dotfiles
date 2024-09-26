@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.local/bin/idwt-lockdown --choose 'block-internet'
+Icon=system-lock-screen-symbolic
+Name=Block Internet
+Keywords=Idwt;Lockdown;Block;disconnect;block-internet;
+Categories=Utility;
+Hidden=false
+NoDisplay=false
+StartupNotify=false
+Terminal=true
+

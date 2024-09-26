@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.local/bin/idwt-lockdown -y
+Icon=system-lock-screen-symbolic
+Name=IDWT Lockdown
+Keywords=Idwt;Lockdown;Block;
+Categories=Utility;
+Hidden=false
+NoDisplay=false
+StartupNotify=false
+Terminal=true
+

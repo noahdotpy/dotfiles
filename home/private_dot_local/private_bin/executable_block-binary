@@ -9,7 +9,6 @@ def "main" [] {
       "/mnt/"
       "/media/"
       "/run/"
-      "/var/"
       "/tmp/"
       "/var/home/noah/"
       "/var/dev/"
