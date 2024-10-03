@@ -20,6 +20,9 @@ def main [
         "Remove Allow Rule for Networking in a Flatpak App": {
           id: "del-allow-flatpak"
         }
+        "Set New Delay": {
+          id: "set-delay"
+        }
       # "Block Window on KWin": {
       #   id: "block-kwin-windows"
       # }
@@ -79,6 +82,17 @@ def main [
       let app_ids = ugum input --header="REMOVE FLATPAK ALLOW: Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for app_id in $app_ids {
         /usr/bin/idwt tighten config $'.flatpak-app-networking.allow-only -= ["($app_id)"]'
+      }
+    }
+
+    if "set-delay" in $chosen_ids {
+      let current_delay = cat /etc/idwt/config.yml |  from yaml | try {get delay} | default (-1 | into int) | into int
+      let new_delay = ugum input --header="SET NEW DELAY: Amount of seconds to delay new rules (example: 10)" --header.foreground="99" | into int
+      if $new_delay >= $current_delay {
+          let difference = calc $new_delay - $current_delay
+          /usr/bin/idw tighten config $'.delay += "($difference)"'
+      } else {
+        print "ERROR: You chose a new delay that is less than than the current delay"
       }
     }
 

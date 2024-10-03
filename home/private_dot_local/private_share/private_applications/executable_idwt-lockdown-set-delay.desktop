@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=~/.local/bin/idwt-lockdown -y --choose 'set-delay'
+Icon=system-lock-screen-symbolic
+Name=Set New IDWT Delay
+Keywords=Idwt;Lockdown;Delay;set-delay;
+Categories=Utility;
+Hidden=false
+NoDisplay=false
+StartupNotify=false
+Terminal=true
+
