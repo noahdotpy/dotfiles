@@ -1,0 +1,8 @@
+[Unit]
+Description=Automatically kill binaries in blocked dirs
+
+[Timer]
+OnCalendar=*-*-* *:*:0/10
+
+[Install]
+WantedBy=timers.target
