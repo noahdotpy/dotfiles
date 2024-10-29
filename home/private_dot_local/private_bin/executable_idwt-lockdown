@@ -20,6 +20,12 @@ def main [
         "Set New Delay": {
           id: "set-delay"
         }
+        "Disable Delay": {
+          id: "disable-delay"
+        }
+        "Add Process to Kill Automatically": {
+          id: "process-killing"
+        }
       # "Block Window on KWin": {
       #   id: "block-kwin-windows"
       # }
@@ -68,8 +74,7 @@ def main [
     }
 
     if "block-flatpak" in $chosen_ids {
-      # TODO: Allow multiple flatpak app blocks by entering them separated by commas (',')
-      let app_ids = ugum input --header="ADD FLATPAK BLOCK: Flatpak ID (example: com.spotify.Client)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
+      let app_ids = ugum input --header="ADD FLATPAK BLOCK: Flatpak IDs separated by commas (example: com.spotify.Client, com.discordapp.Discord)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for app_id in $app_ids {
         /usr/bin/idwt tighten config $'.flatpak-app-networking.block += ["($app_id)"]'
       }
@@ -80,9 +85,20 @@ def main [
       let new_delay = ugum input --header="SET NEW DELAY: Amount of seconds to delay new rules (example: 10)" --header.foreground="99" | into int
       if $new_delay >= $current_delay {
           let difference = calc $new_delay - $current_delay
-          /usr/bin/idw tighten config $'.delay += "($difference)"'
+          /usr/bin/idwt tighten config $'.delay += "($difference)"'
       } else {
         print "ERROR: You chose a new delay that is less than than the current delay"
+      }
+    }
+
+    if "disable-delay" in $chosen_ids {
+      /usr/bin/idwt tighten config '.tightener.delay-enabled = false'
+    }
+
+    if "process-killing" in $chosen_ids {
+      let procs = ugum input --header="ADD PROCESS KILLING RULE: File Paths separated by commas (example: /home/noah/.local/bin/bad, /home/noah/)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
+      for proc in $procs {
+        /usr/bin/idwt tighten config $'.process-killing.block += ["($proc)"]'
       }
     }
 
