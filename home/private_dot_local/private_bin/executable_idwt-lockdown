@@ -53,7 +53,7 @@ def main [
     }
     
     if $confirm_response == "No" {
-      notify-send --app-name "I Don't Want To" "Aborted Lockdown"
+      notify-send --app-name "IDWT" "Aborted Lockdown"
       exit
     }
 
@@ -127,5 +127,5 @@ def main [
   #   } else ""
   # }
     
-    notify-send --app-name "I Don't Want To" "Lockdown completed with these choices:" ($chosen_ids | str join "\n") -u critical
+    notify-send --app-name "IDWT" "Lockdown completed with these choices:" ($chosen_ids | str join "\n") -u critical
 }
