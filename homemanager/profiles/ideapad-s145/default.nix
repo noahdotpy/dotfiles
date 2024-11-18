@@ -7,10 +7,7 @@
 
   modules = {
     fonts.enable = true;
-    neovim.enable = true;
-    plasma.enable = true;
-    wayland.enable = true;
-    zsh.enable = true;
+    hyprland.enable = true;
   };
 
   programs.nix-index = {
