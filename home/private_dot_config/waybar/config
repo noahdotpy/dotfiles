@@ -4,7 +4,8 @@
   "height": 30,
   "modules-left": [
     "hyprland/workspaces",
-    "custom/music"
+    "custom/music",
+    "hyprland/window"
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -13,8 +14,13 @@
     "network",
     "battery",
     "tray",
-    "clock"
+    "clock",
+    "custom/wlogout"
   ],
+  "hyprland/window": {
+    "icon": true,
+    "icon-size": 20
+  },
   "hyprland/workspaces": {
     "show-special": true,
     "disable-scroll": true,
@@ -122,5 +128,9 @@
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl previous",
     "on-scroll-down": "playerctl next"
+  },
+  "custom/wlogout": {
+    "format": "P",
+    "on-click": "wlogout"
   }
 }
