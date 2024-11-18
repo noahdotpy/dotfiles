@@ -14,6 +14,7 @@
     # go
     # ninja
     # rustfmt
+    cmake
     gcc
     meson
   ];
