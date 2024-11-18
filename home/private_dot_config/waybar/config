@@ -130,7 +130,7 @@
     "on-scroll-down": "playerctl next"
   },
   "custom/wlogout": {
-    "format": "P",
+    "format": " ⏻ ",
     "on-click": "wlogout"
   }
 }
