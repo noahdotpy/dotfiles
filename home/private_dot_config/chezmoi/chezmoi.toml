@@ -1,2 +1,4 @@
 [editor]
   command = "nvim"
+[cd]
+  command = "nu"
