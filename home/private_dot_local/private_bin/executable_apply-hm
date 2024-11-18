@@ -1,0 +1,3 @@
+#!/usr/bin/env nu
+let chezmoi_path = $"($env.HOME)/.local/share/chezmoi"
+nix run $chezmoi_path -- switch --flake $chezmoi_path

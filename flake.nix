@@ -14,9 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixgl.url = "github:guibou/nixGL";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
-    devshell.url = "github:numtide/devshell";
+    nixgl.url = "github:guibou/nixGL";
 
     parts.url = "github:hercules-ci/flake-parts";
   };
@@ -25,22 +25,6 @@
     inputs.parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      perSystem =
-        { config
-        , inputs'
-        , pkgs
-        , system
-        , ...
-        }:
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        in
-        {
-          _module.args.pkgs = pkgs;
-
-          imports = [ ./devshell.nix ];
-          formatter = pkgs.alejandra;
-        };
       flake = {
         # Enables `nix run .` to run home manager
         # Example:
@@ -51,7 +35,10 @@
         homeConfigurations."noah@ideapad-s145" = inputs.homemanager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs {
             system = "x86_64-linux";
-            overlays = [ inputs.nixgl.overlay ];
+            overlays = [
+              inputs.nixgl.overlay
+              inputs.hyprpanel.overlay
+            ];
           };
           modules = [
             {

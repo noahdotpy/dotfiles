@@ -8,6 +8,7 @@
 ## Use
 
 ### Chezmoi:
+
 ```bash
 chezmoi init noahdotpy/mydotfiles --apply
 ```
@@ -16,4 +17,4 @@ chezmoi init noahdotpy/mydotfiles --apply
 
 `nix run .` runs home-manager as if it was installed.
 
-This means you can do `nix run . -- switch --flake .` to apply the home manager configuration directly.
+This means you can do `nix run . -- switch --flake .` to apply the home manager configuration directly. This would be just like doing `home-manager switch --flake .`

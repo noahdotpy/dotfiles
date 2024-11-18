@@ -1,23 +1,20 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    nixgl.nixGLIntel
+    # Comments surrounded by `:` are the start of a new section
 
-    # tui/cli
-    duf
-    lf
-    lsd
-    ncdu
-    sd
-    delta
+    # nixgl.nixGLIntel
 
-    # dev
-    cargo
-    cargo-modules
-    cargo-watch
+    # :tui/cli:
+    # sd
+
+    # :dev:
+    # cargo
+    # cargo-modules
+    # cargo-watch
+    # go
+    # ninja
+    # rustfmt
     gcc
-    go
     meson
-    ninja
-    rustfmt
   ];
 }

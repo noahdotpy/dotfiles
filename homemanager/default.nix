@@ -1,17 +1,18 @@
-{
-  self,
-  config,
-  pkgs,
-  inputs,
-  ...
+{ self
+, config
+, pkgs
+, inputs
+, ...
 }: {
-  imports = [./modules];
+  imports = [ ./modules ];
 
   home = rec {
     username = "noah";
     homeDirectory = "/home/${username}";
 
     enableNixpkgsReleaseCheck = true;
+
+    # DON'T CHANGE
     stateVersion = "22.05";
   };
 
