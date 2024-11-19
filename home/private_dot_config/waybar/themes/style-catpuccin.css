@@ -1,3 +1,5 @@
+/* TODO: Redo all the colours for catpuccin */
+/* https://github.com/catppuccin/catppuccin */
 * {
     border: none;
     border-radius: 0px;
@@ -44,7 +46,7 @@ window#waybar {
 }
 
 #idle_inhibitor.activated {
-    background-color: #689d6a;
+    background-color: #a6e3a1	; /* green */
     color: #1d2021;
 }
 

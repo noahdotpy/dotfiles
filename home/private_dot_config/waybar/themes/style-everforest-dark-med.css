@@ -1,0 +1,80 @@
+/* TODO: Redo all the colours for everforest */
+/* https://github.com/sainnhe/everforest/blob/master/palette.md */
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "Inconsolata";
+    font-size: 16px;
+    min-height: 0;
+    color: #d3c6aa;
+}
+
+window#waybar {
+    border-bottom-style: inset;
+    border-bottom: 4px solid #829181;
+    background: #232a2e;
+}
+
+#workspaces, #clock, #custom-music, #window { 
+    font-weight: 800;
+}
+
+/* Workspace Buttons */
+#workspaces button {
+    color: #d3c6aa;
+}
+/*#workspaces button.focused {*/
+/*    color: #1d2021;*/
+/*}*/
+/*#workspaces button.focused {*/
+/*    background: #689d6a; */
+/*}*/
+/**/
+
+#mode {
+    background-color: #cc241d;
+    color: white;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+    padding: 0 5px;
+    margin: 0 10px;
+}
+
+
+#idle_inhibitor {
+    padding: 0 10px;
+}
+
+#idle_inhibitor.activated {
+    color: #a7c080;
+    border-bottom: 4px solid #a7c080;
+}
+
+
+#custom-music {
+    color: #d699b6;
+    margin: 0 15px;
+    padding: 0 20px;
+    border-bottom: 4px solid #d699b6;
+
+}
+
+#clock {
+    margin: 0;
+    color: #dbbc7f;
+    border-bottom: 4px solid #dbbc7f;
+}
+
+
+#network.disconnected {
+    color: #cc241d;
+    border-bottom: 4px solid #cc241d;
+}
+
+
+#pulseaudio.muted {
+    padding: 0 20px;
+    color: #e67e80;
+    border-bottom: 4px solid #e67e80;
+}

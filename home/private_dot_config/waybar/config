@@ -26,12 +26,12 @@
     "show-special": true,
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "<span color=\"#ebdbb2\">{icon} {name}</span>",
+    "format": "{icon} {name}",
     "format-icons": {
       "urgent": "",
-      "active": "",
+      "active": "<span color=\"#8da101\"></span>",
+      "special": "<span color=\"#a6b0a0\">󱡓</span>",
       "default": "",
-      "special": "󱡓",
     }
   },
   "battery": {
@@ -89,7 +89,7 @@
   },
   "network": {
     // "interface": "wlp2s0", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ",
+    "format-wifi": "ON ",
     "format-ethernet": "{ifname}: {}ipaddr",
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
