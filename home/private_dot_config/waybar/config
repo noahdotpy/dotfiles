@@ -98,7 +98,8 @@
     "tooltip-format-disconnected": "Disconnected ⚠"
   },
   "pulseaudio": {
-    "scroll-step": 5,
+    "scroll-step": 2,
+    "on-click": "pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
@@ -115,10 +116,9 @@
         ""
       ]
     },
-    "on-click": "pavucontrol"
   },
   "backlight": {
-    "scroll-step": 0.75,
+    "scroll-step": 5,
     "format": "{percent}% 󰃠 "
   },
   "custom/music": {
