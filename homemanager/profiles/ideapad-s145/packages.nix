@@ -17,5 +17,6 @@
     cmake
     gcc
     meson
+    zenity
   ];
 }
