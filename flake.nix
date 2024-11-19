@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
     nixgl.url = "github:guibou/nixGL";
 
     parts.url = "github:hercules-ci/flake-parts";
@@ -37,7 +35,6 @@
             system = "x86_64-linux";
             overlays = [
               inputs.nixgl.overlay
-              inputs.hyprpanel.overlay
             ];
           };
           modules = [
