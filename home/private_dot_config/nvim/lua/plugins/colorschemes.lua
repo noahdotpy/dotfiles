@@ -9,6 +9,12 @@ return {
     lazy = true,
     priority = 1000,
   },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+
   -- {
   --   "f-person/auto-dark-mode.nvim",
   --   opts = {
