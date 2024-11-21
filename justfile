@@ -23,15 +23,15 @@ just-fix:
     echo "Checking syntax: ${project_root}/justfile"
     just --unstable --fmt -f ${project_root}/justfile || { exit 1; }
 
-alias c := chezmoi
-
-alias n := nix
-alias n-b := nix-backup
-
-alias hm := home-manager
+alias c    := chezmoi
+           
+alias n    := nix
+alias n-b  := nix-backup
+           
+alias hm   := home-manager
 alias hm-b := home-manager-backup
-
-alias sm := system-manager
+           
+alias sm   := system-manager
 
 chezmoi:
   chezmoi apply
