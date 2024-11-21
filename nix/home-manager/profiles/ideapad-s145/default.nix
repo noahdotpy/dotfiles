@@ -1,7 +1,8 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  ...
 }: {
   imports = [
     ./packages.nix
@@ -10,6 +11,7 @@
 
   modules = {
     fonts.enable = true;
+    hyprland.enable = true;
   };
 
   programs.nix-index = {

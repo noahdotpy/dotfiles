@@ -1,6 +1,7 @@
-{ inputs
-, pkgs
-, ...
+{
+  inputs,
+  pkgs,
+  ...
 }: {
   home.packages = with pkgs; [
     # Comments surrounded by `:` are the start of a new section

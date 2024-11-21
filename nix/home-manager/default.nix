@@ -6,6 +6,8 @@
 }: {
   imports = [ ./modules ];
 
+  news.display = "silent";
+
   home = rec {
     username = "noah";
     homeDirectory = "/home/${username}";
