@@ -2,11 +2,11 @@
 
 def main [
   --yes(-y) # automatically respond yes to confirmation prompts
-  --choose(-c): string # use these choices, skipping choices prompt - IDs separated by comma (eg: block-sites,block-flatpak)
+  --choose(-c): string # use these choices, skipping choices prompt - IDs separated by comma (eg: block-sites,block-flatpak-networking)
 ] {
     let choices = {
-        "Block Internet for Current User": {
-          id: "block-internet"
+        "Block Networking for Current User": {
+          id: "block-networking"
         }
         "Block Sites": {
           id: "block-sites"
@@ -15,7 +15,7 @@ def main [
           id: "unadmin"
         }
         "Block Networking for a Flatpak App": {
-          id: "block-flatpak"
+          id: "block-flatpak-networking"
         }
         "Set New Delay": {
           id: "set-delay"
@@ -23,12 +23,10 @@ def main [
         "Disable Delay": {
           id: "disable-delay"
         }
-        "Add Process to Kill Automatically": {
-          id: "process-killing"
+        "Kill Processes": {
+          id: "kill-processes"
         }
-      # "Block Window on KWin": {
-      #   id: "block-kwin-windows"
-      # }
+      # TODO: Add kill-gnome-windows and kill-plasma-windows (maybe detect which one to use based on $env.XDG_SESSION_DESKTOP)
     }
     let choices_names = $choices | columns
 
@@ -73,10 +71,10 @@ def main [
       /usr/bin/idwt tighten group remove $env.USER wheel
     }
 
-    if "block-flatpak" in $chosen_ids {
+    if "block-flatpak-networking" in $chosen_ids {
       let app_ids = ugum input --header="ADD FLATPAK BLOCK: Flatpak IDs separated by commas (example: com.spotify.Client, com.discordapp.Discord)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for app_id in $app_ids {
-        /usr/bin/idwt tighten config $'.flatpak-app-networking.block += ["($app_id)"]'
+        /usr/bin/idwt tighten config $'.toggle-flatpak-networking.block += ["($app_id)"]'
       }
     }
 
@@ -95,37 +93,20 @@ def main [
       /usr/bin/idwt tighten config '.tightener.delay-enabled = false'
     }
 
-    if "process-killing" in $chosen_ids {
+    if "kill-processes" in $chosen_ids {
       let procs = ugum input --header="ADD PROCESS KILLING RULE: File Paths separated by commas (example: /home/noah/.local/bin/bad, /home/noah/)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for proc in $procs {
-        /usr/bin/idwt tighten config $'.process-killing.block += ["($proc)"]'
+        /usr/bin/idwt tighten config $'.kill-processes.block += ["($proc)"]'
       }
     }
 
-# TODO: actually implement this
-  # if "block-kwin-windows" in $chosen_ids {
-  #   let rule = {}
-  #   let class = ugum input --header="Window Class (leave empty to skip)" --header.foreground="99"
-  #   let rule = if (not ($class | is-empty)) {
-  #     $rule | insert class.value $class | insert class.whole_window_class $whole_class
-  #   } else $rule
-  #   let whole_class = if (not ($class | is-empty)) {
-  #     ugum choose true false --header "Match whole window class?" 
-  #   } else ""
-  #   let class_match = if (not ($class | is-empty)) {
-  #     ugum choose substring regex exact --header="What type of matching do you want for the class?"
-  #   } else ""
-  #
-  #   let title = ugum input --header="Window Title (leave empty to skip)" --header.foreground="99"
-  #   let title_match = if (not ($title | is-empty)) {
-  #     ugum choose substring regex exact --header="What type of matching do you want for the title?"
-  #   } else ""
-  #
-  #   let role = ugum input --header="Window Role (leave empty to skip)" --header.foreground="99"
-  #   let role_match = if (not ($role | is-empty)) {
-  #     ugum choose substring regex exact --header="What type of matching do you want for the role?"
-  #   } else ""
-  # }
-    
+    # TODO: actually implement this
+    # if "kill-plasma-windows" in $chosen_ids {
+    #   let rule = {}
+    #
+    #   let class = ugum input --header="Window Class (leave empty to skip)" --header.foreground="99"
+    #   let title = ugum input --header="Window Title (leave empty to skip)" --header.foreground="99"
+    # }
+      
     notify-send --app-name "IDWT" "Lockdown completed with these choices:" ($chosen_ids | str join "\n") -u critical
 }
