@@ -3,11 +3,8 @@ set ignore-comments := true
 
 _default:
     #!/usr/bin/bash
-    source /usr/lib/ujust/libformatting.sh
-    echo "$(Urllink "https://universal-blue.discourse.group/docs?topic=42" "Click here to view the Universal Blue just documentation")"
     /usr/bin/just --list --list-heading $'Available commands:\n' --list-prefix $' - '
 
 # Imports
 import "~/.config/ijust/modules/distrobox.just"
-import "~/.config/ijust/modules/idwtn.just"
 import "~/.config/ijust/modules/system.just"
