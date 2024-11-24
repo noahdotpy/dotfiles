@@ -16,6 +16,8 @@
     # cargo-watch
     # go
     # rustfmt
+
+    # :unorganised:
     vscode
   ];
 }
