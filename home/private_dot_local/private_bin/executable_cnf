@@ -1,0 +1,5 @@
+#!/usr/bin/env nu
+
+def main [command, ..._] {
+    lynx $"https://command-not-found.com/($command)"
+}
