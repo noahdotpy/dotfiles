@@ -18,6 +18,5 @@
     # rustfmt
 
     # :unorganised:
-    vscode
   ];
 }
