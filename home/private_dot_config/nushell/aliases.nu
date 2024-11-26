@@ -6,7 +6,7 @@ export def '@' [choice = "", params = ""] {
   if $name == "" {
     let distroboxes = distrobox list | tail -n +2 | cut -d '|' -f2 | xargs | split row ' '
     let choices = $distroboxes | append "host"
-    let name = ugum choose ...$choices
+    let name = gum choose ...$choices
   }
 
   if $name == "host" {
@@ -20,9 +20,11 @@ alias x = clear
 
 alias dots = chezmoi
 alias dotsa = chezmoi apply
-alias image = rpm-ostree
+
 alias g = git
 alias lg = lazygit
+
+alias sysext = systemd-sysext
 
 export def e [...params] {
     ^$env.EDITOR ...$params

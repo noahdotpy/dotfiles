@@ -31,7 +31,7 @@ def main [
     let choices_names = $choices | columns
 
     let chosen = if ($choose | is-empty) {
-      ugum choose --no-limit ...$choices_names --header "Choose which options you want for lockdown (empty to exit): " | str replace "\n" "," | split row ','
+      gum choose --no-limit ...$choices_names --header "Choose which options you want for lockdown (empty to exit): " | str replace "\n" "," | split row ','
     }
     
     let chosen_ids = if not ($choose | is-empty) {
@@ -47,7 +47,7 @@ def main [
     let confirm_response = if $yes {
       "Yes"
     } else {
-      ugum choose Yes No --header $"Lockdown with these options: '($chosen_ids)'?)"
+      gum choose Yes No --header $"Lockdown with these options: '($chosen_ids)'?)"
     }
     
     if $confirm_response == "No" {
@@ -61,7 +61,7 @@ def main [
     }
 
     if "block-sites" in $chosen_ids {
-      let sites = ugum input --header="ADD SITE BLOCK: Sites separated by `,` (example: facebook.com, u.pluckeye.net/devices)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
+      let sites = gum input --header="ADD SITE BLOCK: Sites separated by `,` (example: facebook.com, u.pluckeye.net/devices)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for site in $sites {
         /usr/bin/idwt tighten config $'.block-sites += ["($site)"]'
       }
@@ -72,7 +72,7 @@ def main [
     }
 
     if "block-flatpak-networking" in $chosen_ids {
-      let app_ids = ugum input --header="ADD FLATPAK BLOCK: Flatpak IDs separated by commas (example: com.spotify.Client, com.discordapp.Discord)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
+      let app_ids = gum input --header="ADD FLATPAK BLOCK: Flatpak IDs separated by commas (example: com.spotify.Client, com.discordapp.Discord)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for app_id in $app_ids {
         /usr/bin/idwt tighten config $'.toggle-flatpak-networking.block += ["($app_id)"]'
       }
@@ -80,7 +80,7 @@ def main [
 
     if "set-delay" in $chosen_ids {
       let current_delay = cat /etc/idwt/config.yml |  from yaml | try {get delay} | default (-1 | into int) | into int
-      let new_delay = ugum input --header="SET NEW DELAY: Amount of seconds to delay new rules (example: 10)" --header.foreground="99" | into int
+      let new_delay = gum input --header="SET NEW DELAY: Amount of seconds to delay new rules (example: 10)" --header.foreground="99" | into int
       if $new_delay >= $current_delay {
           let difference = calc $new_delay - $current_delay
           /usr/bin/idwt tighten config $'.delay += "($difference)"'
@@ -94,7 +94,7 @@ def main [
     }
 
     if "kill-processes" in $chosen_ids {
-      let procs = ugum input --header="ADD PROCESS KILLING RULE: File Paths separated by commas (example: /home/noah/.local/bin/bad, /home/noah/)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
+      let procs = gum input --header="ADD PROCESS KILLING RULE: File Paths separated by commas (example: /home/noah/.local/bin/bad, /home/noah/)" --header.foreground="99" | split row ',' | each {|e| $e | str trim}
       for proc in $procs {
         /usr/bin/idwt tighten config $'.kill-processes.block += ["($proc)"]'
       }
@@ -104,8 +104,8 @@ def main [
     # if "kill-plasma-windows" in $chosen_ids {
     #   let rule = {}
     #
-    #   let class = ugum input --header="Window Class (leave empty to skip)" --header.foreground="99"
-    #   let title = ugum input --header="Window Title (leave empty to skip)" --header.foreground="99"
+    #   let class = gum input --header="Window Class (leave empty to skip)" --header.foreground="99"
+    #   let title = gum input --header="Window Title (leave empty to skip)" --header.foreground="99"
     # }
       
     notify-send --app-name "IDWT" "Lockdown completed with these choices:" ($chosen_ids | str join "\n") -u critical

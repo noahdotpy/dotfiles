@@ -20,7 +20,7 @@ toggle-nightly-reboots ACTION="prompt":
 	if [ "$OPTION" == "prompt" ]; then
 		echo "Automatic nightly reboots are currently: ${bold}${CURRENT_STATE}${normal}"
 		echo "Enable or Disable automatic nightly reboots?"
-		OPTION=$(ugum choose Enable Disable)
+		OPTION=$(gum choose Enable Disable)
 	elif [ "$OPTION" == "help" ]; then
 		echo "Usage: ijust toggle-nightly-reboots <option>"
 		echo "  <option>: Specify the quick option - 'enable' or 'disable'"
