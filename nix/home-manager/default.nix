@@ -18,7 +18,5 @@
     stateVersion = "22.05";
   };
 
-  xdg.dataFile."hm-generation".source = self;
-
   programs.home-manager.enable = true;
 }
