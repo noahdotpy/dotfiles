@@ -6,12 +6,14 @@ return {
   },
   {
     "catppuccin/nvim",
+    version = "1.x.x",
     lazy = true,
     priority = 1000,
   },
   {
     "ellisonleao/gruvbox.nvim",
     lazy = true,
+    version = "2.x.x",
     priority = 1000,
   },
 
