@@ -70,8 +70,8 @@
               };
             }
             inputs.hyprland.homeManagerModules.default
-            ./nix/home-manager/profiles/ideapad-s145
-            ./nix/home-manager
+            ./home-manager/profiles/ideapad-s145
+            ./home-manager
           ];
         };
       };
