@@ -6,8 +6,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixgl.url = "github:guibou/nixGL";
-
     # TODO: Update ref to correct tag for the hyprland version I'm on
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland/tree/v0.45.2?submodules=1";
     hyprland.url = "github:hyprwm/Hyprland/v0.45.2";
@@ -28,19 +26,16 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs = inputs @ { self, ... }:
-    inputs.parts.lib.mkFlake { inherit inputs; } {
+    let
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    in
+    {
       homeConfigurations."noah@ideapad-s145" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          overlays = [
-            inputs.nixgl.overlay
-          ];
-        };
+        inherit pkgs;
         modules = [
           {
             _module.args = {
