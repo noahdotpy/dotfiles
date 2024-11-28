@@ -5,16 +5,22 @@
 
 </div>
 
-## Use
+## Usage
+
+If you store this repo in a location other than `~/.local/share/chezmoi/` you should make a symlink that targets the different location, with the link name being `~/.local/share/chezmoi/`:
+
+```bash
+ln -s ~/my/myhome/ ~/.local/share/chezmoi/
+```
 
 ### Chezmoi:
 
 ```bash
-chezmoi init noahdotpy/mydotfiles --apply
+chezmoi apply
 ```
 
 ### Nix Home Manager:
 
-`nix run .` runs home-manager as if it was installed.
-
-This means you can do `nix run . -- switch --flake .` to apply the home manager configuration directly. This would be just like doing `home-manager switch --flake .`
+```bash
+nix run 'github:nix-community/home-manager' -- switch --flake '.'
+```
