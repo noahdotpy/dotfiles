@@ -29,51 +29,29 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    devshell.url = "github:numtide/devshell";
     parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs = inputs @ { self, ... }:
     inputs.parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      perSystem =
-        { config
-        , inputs'
-        , pkgs
-        , system
-        , ...
-        }:
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        in
-        {
-          _module.args.pkgs = pkgs;
-
-          imports = [ ./devshell.nix ];
-          formatter = pkgs.alejandra;
-        };
-
-      flake = {
-        homeConfigurations."noah@ideapad-s145" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs {
-            system = "x86_64-linux";
-            overlays = [
-              inputs.nixgl.overlay
-            ];
-          };
-          modules = [
-            {
-              _module.args = {
-                inherit inputs;
-                inherit self;
-              };
-            }
-            inputs.hyprland.homeManagerModules.default
-            ./home-manager/profiles/ideapad-s145
-            ./home-manager
+      homeConfigurations."noah@ideapad-s145" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs {
+          system = "x86_64-linux";
+          overlays = [
+            inputs.nixgl.overlay
           ];
         };
+        modules = [
+          {
+            _module.args = {
+              inherit inputs;
+              inherit self;
+            };
+          }
+          inputs.hyprland.homeManagerModules.default
+          ./home-manager/profiles/ideapad-s145
+          ./home-manager
+        ];
       };
     };
 }
