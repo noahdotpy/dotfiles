@@ -1,7 +1,7 @@
 <div align="center">
 
 # My /home managed with Chezmoi :house_with_garden: and Home Manager :snowflake:&nbsp;
-## Used with [my Fedora Atomic image](https://github.com/noahdotpy/myublue) 💻️
+## Used with [my Fedora Atomic image](https://github.com/noahdotpy/myfedora) 💻️
 
 </div>
 
