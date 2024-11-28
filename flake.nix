@@ -29,33 +29,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    system-manager = {
-      url = "github:numtide/system-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     devshell.url = "github:numtide/devshell";
     parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {self, ...}:
-    inputs.parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
+  outputs = inputs @ { self, ... }:
+    inputs.parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-      perSystem = {
-        config,
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: let
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
-      in {
-        _module.args.pkgs = pkgs;
+      perSystem =
+        { config
+        , inputs'
+        , pkgs
+        , system
+        , ...
+        }:
+        let
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        in
+        {
+          _module.args.pkgs = pkgs;
 
-        imports = [./devshell.nix];
-        formatter = pkgs.alejandra;
-      };
+          imports = [ ./devshell.nix ];
+          formatter = pkgs.alejandra;
+        };
 
       flake = {
         homeConfigurations."noah@ideapad-s145" = inputs.home-manager.lib.homeManagerConfiguration {
@@ -75,12 +72,6 @@
             inputs.hyprland.homeManagerModules.default
             ./nix/home-manager/profiles/ideapad-s145
             ./nix/home-manager
-          ];
-        };
-
-        systemConfigs.default = inputs.system-manager.lib.makeSystemConfig {
-          modules = [
-            ./nix/system-manager
           ];
         };
       };

@@ -23,24 +23,15 @@ just-fix:
     echo "Checking syntax: ${project_root}/justfile"
     just --unstable --fmt -f ${project_root}/justfile || { exit 1; }
 
+alias ch := chezmoi
+alias hm := home-manager
+alias hm-b := home-manager-backup
+
 chezmoi:
   chezmoi apply
-
-nix:
-  #!/bin/sh
-  just home-manager
-  just system-manager
-
-nix-backup:
-  #!/bin/sh
-  just home-manager-backup
-  just system-manager
 
 home-manager:
   /nix/var/nix/profiles/default/bin/nix run 'github:nix-community/home-manager' -- switch --flake {{ project_root }}
 
 home-manager-backup:
   /nix/var/nix/profiles/default/bin/nix run 'github:nix-community/home-manager' -- switch --flake {{ project_root }} -b backup
-
-system-manager:
-  sudo /nix/var/nix/profiles/default/bin/nix run 'github:numtide/system-manager' -- switch --flake {{ project_root }}
