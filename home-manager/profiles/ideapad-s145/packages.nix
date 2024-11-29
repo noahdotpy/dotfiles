@@ -8,14 +8,13 @@
     # nixgl.nixGLIntel
 
     # :tui/cli:
-    # sd
+    helix
+    sd
+    superfile
+    yazi
 
     # :dev:
-    # cargo
-    # cargo-modules
-    # cargo-watch
-    # go
-    # rustfmt
+    go
 
     # :unorganised:
   ];
