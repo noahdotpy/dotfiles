@@ -8,10 +8,7 @@
     # nixgl.nixGLIntel
 
     # :tui/cli:
-    helix
-    sd
     superfile
-    yazi
 
     # :dev:
     go
