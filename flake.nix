@@ -1,6 +1,4 @@
 {
-  description = "My home-manager and system-manager configuration currently deployed on my custom Fedora Atomic image at https://github.com/noahdotpy/myublue";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
