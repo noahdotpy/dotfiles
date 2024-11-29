@@ -2,7 +2,7 @@
 Description=Automatically `git fetch` repos every 5 minutes
 
 [Timer]
-OnCalendar=*:5/10
+OnCalendar=*:5/5
 
 [Install]
 WantedBy=timers.target
