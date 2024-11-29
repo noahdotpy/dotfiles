@@ -10,17 +10,23 @@ $env.config = {
       always_trash: false
   }
   hooks: {
-      pre_prompt: [{ ||
-          if (which direnv | is-empty) {
-              return
-          }
+        pre_prompt: [{ ||
+            if (which direnv | is-empty) {
+                return
+            }
 
-          direnv export json | from json | default {} | load-env
-          if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
-              $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
-          }
-      }]
+            direnv export json | from json | default {} | load-env
+            if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
+                $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
+            }
+        }]
+        env_change: {
+            PWD: {|before, after|
+                if ($"($after)/.git/" | path exists) {
+                    git status --short --branch
+                }
+            }
+        }
   }
 }
-
 source {{ .chezmoi.homeDir }}/.config/nushell/aliases.nu
