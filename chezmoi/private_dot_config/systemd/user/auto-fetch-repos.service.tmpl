@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically `git fetch` repos every 5 minutes
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart={{ .chezmoi.homeDir }}/.local/bin/fetch-repos
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Automatically `git fetch` repos every 5 minutes
+
+[Timer]
+OnCalendar=*:5/10
+
+[Install]
+WantedBy=timers.target

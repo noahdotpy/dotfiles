@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+let search_dirs = cat ~/.config/fetch-repos.yml | from yaml
+
+mut dirs = []
+
+for dir in $search_dirs {
+    let more_dirs = (
+        fd --type directory --unrestricted
+        --regex '^.git$' $dir
+        | lines
+        | each {
+            |path|
+            $path |
+            str replace ".git/" ""
+        }
+    )
+    $dirs = [...$dirs ...$more_dirs]
+}
+
+print $dirs
+
+for dir in $dirs {
+    git -C $dir fetch --verbose
+}

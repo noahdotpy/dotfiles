@@ -4,7 +4,7 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart={{ .chezmoi.homeDir }}/.config/systemd/user/scripts/chezmoi-auto-apply
+ExecStart={{ .chezmoi.homeDir }}/.config/systemd/user/scripts/fetch-repos
 
 [Install]
 WantedBy=default.target
