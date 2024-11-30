@@ -1,1 +1,1 @@
-./config-plain.nu
+./config-blingy.nu
