@@ -28,7 +28,7 @@ def --env y [...args] {
 }
 
 # changes dir to one found from `zoxide query`, then starts $env.EDITOR
-def cde [query] {
+def --env cde [query] {
   let real = zoxide query $query
   cd $real
   ^$env.EDITOR .
