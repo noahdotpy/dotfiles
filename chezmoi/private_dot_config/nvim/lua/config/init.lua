@@ -11,7 +11,6 @@ require("lazy").setup({
   spec = {
     {
       "LazyVim/LazyVim",
-      version = "13.4.x",
       import = "lazyvim.plugins",
       opts = { colorscheme = "gruvbox" },
     },

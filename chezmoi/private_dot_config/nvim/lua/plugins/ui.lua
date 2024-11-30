@@ -34,16 +34,9 @@ return {
       require("preview").setup()
     end,
   },
-  {
-    "folke/noice.nvim",
-    opts = {
-      inc_rename = true,  -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border = true, -- add a border to hover docs and signature help
-    },
-  },
 
   "lewis6991/satellite.nvim",
   "LintaoAmons/cd-project.nvim",
 
-  { import = "lazyvim.plugins.extras.ui.edgy" },
+  -- { import = "lazyvim.plugins.extras.ui.edgy" },
 }

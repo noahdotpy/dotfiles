@@ -1,6 +1,12 @@
 return {
   {
+    "Shatur/neovim-ayu",
+    lazy = true,
+    opts = {},
+  },
+  {
     "neanias/everforest-nvim",
+    lazy = true,
     version = false,
     priority = 1000,
   },
