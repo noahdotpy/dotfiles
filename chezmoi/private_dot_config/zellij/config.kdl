@@ -211,6 +211,7 @@ plugins {
 //
 default_shell "nu"
 
+
 // Choose the path to override cwd that zellij will use for opening new panes
 //
 // default_cwd ""
@@ -271,7 +272,7 @@ default_shell "nu"
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "ayu_dark"
 
 // The name of the default layout to load on startup
 // Default: "default"
