@@ -27,6 +27,12 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+def cde [query] {
+  let real = zoxide query $query
+  cd $real
+  ^$env.EDITOR .
+}
+
 alias x = clear
 
 alias dots = chezmoi
