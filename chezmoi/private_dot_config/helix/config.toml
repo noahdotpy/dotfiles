@@ -19,7 +19,7 @@ mouse = false
 middle-click-paste = false
 
 [editor.file-picker]
-hidden = true
+hidden = false
 git-global = true
 git-ignore = true
 parents = true
